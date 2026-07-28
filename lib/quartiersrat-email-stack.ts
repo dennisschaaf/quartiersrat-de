@@ -6,6 +6,7 @@ import { BlockPublicAccess, Bucket, EventType } from "aws-cdk-lib/aws-s3";
 import { LambdaDestination } from "aws-cdk-lib/aws-s3-notifications";
 import { EmailIdentity, Identity, ReceiptRuleSet, TlsPolicy } from "aws-cdk-lib/aws-ses";
 import { S3 as S3Action } from "aws-cdk-lib/aws-ses-actions";
+import { StringParameter } from "aws-cdk-lib/aws-ssm";
 import { AwsCustomResource, AwsCustomResourcePolicy, PhysicalResourceId } from "aws-cdk-lib/custom-resources";
 import type { Construct } from "constructs";
 
@@ -14,7 +15,8 @@ interface QuartiersratEmailStackProps extends StackProps {
   zone: IHostedZone;
   // Comma-separated list of addresses to forward all incoming mail to
   forwardTo: string;
-  // Comma-separated list of addresses to forward harthof subdomain mail to (falls back to forwardTo)
+  // Initial comma-separated list of addresses to forward harthof subdomain mail to.
+  // Stored in SSM — update /quartiersrat/harthof/forward-to directly to change without redeploying.
   forwardToHarthof?: string;
 }
 
@@ -49,7 +51,7 @@ export class QuartiersratEmailStack extends Stack {
       code: Code.fromAsset("lib/email-forwarder"),
       environment: {
         FORWARD_TO: props.forwardTo,
-        ...(props.forwardToHarthof ? { FORWARD_TO_HARTHOF: props.forwardToHarthof } : {}),
+        FORWARD_TO_HARTHOF_PARAM: "/quartiersrat/harthof/forward-to",
         FROM_EMAIL: `noreply@${props.domainName}`,
       },
       timeout: Duration.seconds(30),
@@ -62,6 +64,21 @@ export class QuartiersratEmailStack extends Stack {
         effect: Effect.ALLOW,
         actions: ["ses:SendRawEmail"],
         resources: ["*"],
+      })
+    );
+
+    // SSM parameter for harthof forward-to addresses — edit in AWS Console without redeploying
+    const harthofParam = new StringParameter(this, "HarthofForwardTo", {
+      parameterName: "/quartiersrat/harthof/forward-to",
+      stringValue: props.forwardToHarthof ?? props.forwardTo,
+      description: "Comma-separated list of addresses to forward harthof.quartiersrat.de mail to",
+    });
+
+    forwarder.addToRolePolicy(
+      new PolicyStatement({
+        effect: Effect.ALLOW,
+        actions: ["ssm:GetParameter"],
+        resources: [harthofParam.parameterArn],
       })
     );
 

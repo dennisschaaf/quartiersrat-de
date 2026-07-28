@@ -34,7 +34,7 @@ new QuartiersratEmailStack(app, "QuartiersratEmail", {
   domainName,
   zone: zoneStack.zone,
   forwardTo: "dennis@dennisschaaf.com",
-  forwardToHarthof: "dennis@dennisschaaf.com,uqu@gmx.de,e.hahn@etc-muenchen.de",
+  forwardToHarthof: "dennis@dennisschaaf.com,uqu@gmx.de,e.hahn@etc-muenchen.de,andreaschoener@aol.com",
 });
 
 // 4. S3 + CloudFront for quartiersrat.de and harthof.quartiersrat.de.
