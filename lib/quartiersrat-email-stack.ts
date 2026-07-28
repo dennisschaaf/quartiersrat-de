@@ -14,6 +14,8 @@ interface QuartiersratEmailStackProps extends StackProps {
   zone: IHostedZone;
   // Comma-separated list of addresses to forward all incoming mail to
   forwardTo: string;
+  // Comma-separated list of addresses to forward harthof subdomain mail to (falls back to forwardTo)
+  forwardToHarthof?: string;
 }
 
 export class QuartiersratEmailStack extends Stack {
@@ -47,6 +49,7 @@ export class QuartiersratEmailStack extends Stack {
       code: Code.fromAsset("lib/email-forwarder"),
       environment: {
         FORWARD_TO: props.forwardTo,
+        ...(props.forwardToHarthof ? { FORWARD_TO_HARTHOF: props.forwardToHarthof } : {}),
         FROM_EMAIL: `noreply@${props.domainName}`,
       },
       timeout: Duration.seconds(30),
