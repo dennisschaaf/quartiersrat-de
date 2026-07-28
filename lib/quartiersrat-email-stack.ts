@@ -75,18 +75,24 @@ export class QuartiersratEmailStack extends Stack {
       mailFromDomain: `mail.${props.domainName}`,
     });
 
-    // ── MX record pointing to SES inbound endpoint ──────────────────────
+    // ── MX records pointing to SES inbound endpoint ─────────────────────
     // SES email receiving is not available in eu-central-1; this stack runs in eu-west-1
+    const inboundSmtp = `inbound-smtp.${this.region}.amazonaws.com`;
     new MxRecord(this, "InboundMx", {
       zone: props.zone,
-      values: [{ hostName: `inbound-smtp.${this.region}.amazonaws.com`, priority: 10 }],
+      values: [{ hostName: inboundSmtp, priority: 10 }],
+    });
+    new MxRecord(this, "HarthofInboundMx", {
+      zone: props.zone,
+      recordName: `harthof.${props.domainName}`,
+      values: [{ hostName: inboundSmtp, priority: 10 }],
     });
 
     // ── SES receipt rule set ────────────────────────────────────────────
     const ruleSet = new ReceiptRuleSet(this, "RuleSet");
 
     ruleSet.addRule("ForwardAll", {
-      recipients: [props.domainName],
+      recipients: [props.domainName, `harthof.${props.domainName}`],
       actions: [new S3Action({ bucket: emailBucket, objectKeyPrefix: "emails/" })],
       enabled: true,
       scanEnabled: true,
