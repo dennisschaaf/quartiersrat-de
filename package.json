@@ -1,0 +1,25 @@
+{
+  "name": "quartiersrat",
+  "type": "module",
+  "bin": {
+    "quartiersrat": "bin/app.ts"
+  },
+  "scripts": {
+    "dev": "bun run scripts/dev.ts",
+    "cdk": "cdk --profile quartiersrat",
+    "synth": "cdk synth --all --profile quartiersrat",
+    "deploy": "cdk deploy --all --require-approval never --profile quartiersrat",
+    "diff": "cdk diff --all --profile quartiersrat"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "aws-cdk": "^2.1000.0"
+  },
+  "dependencies": {
+    "aws-cdk-lib": "^2.170.0",
+    "constructs": "^10.4.2"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  }
+}

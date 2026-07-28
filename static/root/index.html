@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>quartiersrat.de – Quartiersräte in München</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+
+  :root {
+    --blue-900: #00395c;
+    --blue-800: #00507f;
+    --blue-700: #0071b5;
+    --blue-600: #1b98d5;
+    --blue-100: #d9eefa;
+    --blue-50:  #f0f8fd;
+    --grey-900: #1a1a1a;
+    --grey-600: #6b7075;
+    --grey-200: #e8ebed;
+    --grey-50:  #f8f9fa;
+    --white:    #ffffff;
+
+    --font-sans: "Open Sans", "Segoe UI", Helvetica, Arial, sans-serif;
+    --fw-semibold: 600;
+    --fw-bold: 700;
+    --fw-extrabold: 800;
+
+    --space-3: 12px;
+    --space-4: 16px;
+    --space-5: 24px;
+    --space-6: 32px;
+    --space-7: 48px;
+    --space-8: 64px;
+    --gutter: 24px;
+    --container-max: 1200px;
+    --radius-md: 8px;
+    --radius-pill: 999px;
+  }
+
+  body {
+    margin: 0;
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--grey-900);
+    background: var(--white);
+  }
+
+  /* ── Top bar ── */
+  .topbar {
+    background: var(--grey-50);
+    border-bottom: 1px solid var(--grey-200);
+  }
+  .topbar-inner {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 var(--gutter);
+    height: 36px;
+    display: flex;
+    align-items: center;
+    gap: var(--space-5);
+    font-size: 0.8125rem;
+    color: var(--grey-600);
+  }
+  .topbar-inner a { color: inherit; text-decoration: none; }
+  .topbar-inner a:hover { text-decoration: underline; }
+
+  /* ── Header ── */
+  header {
+    background: var(--blue-600);
+    padding: var(--space-8) var(--gutter);
+    text-align: center;
+  }
+  header h1 {
+    margin: 0;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: var(--fw-extrabold);
+    color: var(--white);
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+  }
+  header p {
+    margin: var(--space-4) auto 0;
+    max-width: 56ch;
+    font-size: 1.25rem;
+    line-height: 1.5;
+    color: var(--blue-100);
+  }
+
+  /* ── Subdomain grid ── */
+  .subdomains {
+    max-width: var(--container-max);
+    margin: var(--space-8) auto;
+    padding: 0 var(--gutter);
+  }
+  .subdomains h2 {
+    font-size: 1.75rem;
+    font-weight: var(--fw-bold);
+    margin: 0 0 var(--space-5);
+    letter-spacing: -0.01em;
+  }
+  .subdomain-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--space-5);
+  }
+  .subdomain-card {
+    display: block;
+    padding: var(--space-5);
+    background: var(--blue-50);
+    border: 1px solid var(--grey-200);
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    color: inherit;
+    transition: box-shadow 180ms ease, border-color 180ms ease;
+  }
+  .subdomain-card:hover {
+    border-color: var(--blue-700);
+    box-shadow: 0 2px 12px rgba(0, 113, 181, .12);
+  }
+  .subdomain-card .domain {
+    font-size: 1rem;
+    font-weight: var(--fw-bold);
+    color: var(--blue-700);
+    margin: 0 0 4px;
+  }
+  .subdomain-card .desc {
+    font-size: 0.875rem;
+    color: var(--grey-600);
+    margin: 0;
+  }
+
+  /* ── Info section ── */
+  .info {
+    background: var(--grey-50);
+    border-top: 1px solid var(--grey-200);
+    padding: var(--space-8) var(--gutter);
+  }
+  .info-inner {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-7);
+  }
+  .info h2 {
+    font-size: 1.375rem;
+    font-weight: var(--fw-bold);
+    margin: 0 0 var(--space-3);
+  }
+  .info p {
+    font-size: 0.875rem;
+    color: var(--grey-600);
+    line-height: 1.6;
+    margin: 0;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0 20px;
+    height: 44px;
+    border-radius: var(--radius-pill);
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    font-weight: var(--fw-semibold);
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    margin-top: var(--space-4);
+    transition: background 180ms ease;
+  }
+  .btn-primary { background: var(--blue-700); color: var(--white); }
+  .btn-primary:hover { background: var(--blue-800); color: var(--white); }
+
+  /* ── Footer ── */
+  footer {
+    background: var(--blue-900);
+    color: rgba(255,255,255,.7);
+    padding: var(--space-6) var(--gutter);
+    font-size: 0.8125rem;
+    text-align: center;
+  }
+  footer a { color: inherit; }
+
+  @media (max-width: 640px) {
+    .info-inner { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <a href="#">Über dieses Portal</a>
+    <a href="#">Kontakt</a>
+    <span style="margin-left:auto">Quartiersräte in München · begleitet vom EU-Projekt ASCEND</span>
+  </div>
+</div>
+
+<header>
+  <h1>quartiersrat.de</h1>
+  <p>Das Portal für Quartiersräte in München. Hier entstehen die Stimmen der Nachbarschaft – engagiert, transparent und demokratisch.</p>
+</header>
+
+<main class="subdomains">
+  <h2>Aktive Quartiersräte</h2>
+  <div class="subdomain-grid">
+    <a href="https://harthof.quartiersrat.de" class="subdomain-card">
+      <p class="domain">harthof.quartiersrat.de</p>
+      <p class="desc">Quartiersrat Harthof / Am Hart · gegründet April 2026</p>
+    </a>
+    <!-- Weitere Quartiersräte werden hier ergänzt -->
+  </div>
+</main>
+
+<section class="info">
+  <div class="info-inner">
+    <div>
+      <h2>Einen eigenen Quartiersrat eintragen</h2>
+      <p>Sie möchten Ihren Quartiersrat auf dieser Plattform sichtbar machen? Wir richten gerne eine eigene Subdomain und Landing Page ein. Nehmen Sie Kontakt auf.</p>
+      <a href="mailto:kontakt@quartiersrat.de" class="btn btn-primary">Kontakt aufnehmen</a>
+    </div>
+    <div>
+      <h2>Was ist ein Quartiersrat?</h2>
+      <p>Ein Quartiersrat ist ein bürgerschaftliches Gremium, das die Interessen eines Stadtteils vertritt. Er bringt Bewohner:innen, Initiativen und Einrichtungen zusammen und gestaltet das Quartier aktiv mit – im Austausch mit Bezirksausschüssen und der Landeshauptstadt München.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 quartiersrat.de · <a href="mailto:kontakt@quartiersrat.de">kontakt@quartiersrat.de</a> · <a href="#">Impressum</a> · <a href="#">Datenschutz</a></p>
+  <p>Gefördert durch die Europäische Union im Projekt ASCEND · Bezirksausschuss 11, Landeshauptstadt München</p>
+</footer>
+
+</body>
+</html>
