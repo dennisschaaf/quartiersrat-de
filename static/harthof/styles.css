@@ -17,6 +17,14 @@
   --green-100: #dff2e8;
   --sand-600: #d08228;
   --sand-100: #fbeedd;
+  /* EU/ASCEND palette */
+  --eu-teal:        #009EAF;
+  --eu-teal-hover:  #007A88;
+  --eu-teal-soft:   #DFF6F8;
+  --eu-purple:      #BB00CC;
+  --eu-purple-soft: #F5D6F9;
+  --eu-yellow:      #C49600;
+  --eu-yellow-soft: #FEF5CC;
   --grey-900: #1a1a1a;
   --grey-800: #333333;
   --grey-700: #4d4d4d;
@@ -34,28 +42,28 @@
   --amber-100:#fdf1cf;
 
   /* Semantic */
-  --color-primary:        var(--blue-700);
-  --color-primary-hover:  var(--blue-800);
-  --color-primary-soft:   var(--blue-100);
-  --color-eco:            var(--green-700);
-  --color-eco-soft:       var(--green-100);
-  --color-participate:    var(--sand-600);
-  --color-participate-soft: var(--sand-100);
+  --color-primary:        var(--eu-teal);
+  --color-primary-hover:  var(--eu-teal-hover);
+  --color-primary-soft:   var(--eu-teal-soft);
+  --color-eco:            var(--eu-purple);
+  --color-eco-soft:       var(--eu-purple-soft);
+  --color-participate:    var(--eu-yellow);
+  --color-participate-soft: var(--eu-yellow-soft);
   --text-body:    var(--grey-800);
   --text-heading: var(--grey-900);
   --text-muted:   var(--grey-600);
-  --text-link:    var(--blue-700);
-  --text-link-hover: var(--blue-900);
+  --text-link:    var(--eu-teal);
+  --text-link-hover: var(--eu-teal-hover);
   --surface-page:    var(--white);
   --surface-subtle:  var(--grey-50);
   --surface-card:    var(--white);
-  --surface-tint:    var(--blue-50);
+  --surface-tint:    var(--eu-teal-soft);
   --surface-inverse: var(--blue-900);
   --border-subtle:  var(--grey-200);
   --border-default: var(--grey-300);
-  --focus-ring: 0 0 0 3px var(--blue-200), 0 0 0 5px var(--blue-700);
-  --state-info:      var(--blue-700);
-  --state-info-soft: var(--blue-100);
+  --focus-ring: 0 0 0 3px var(--eu-teal-soft), 0 0 0 5px var(--eu-teal);
+  --state-info:      var(--eu-teal);
+  --state-info-soft: var(--eu-teal-soft);
 
   /* Typography */
   --font-sans: "Open Sans", "Segoe UI", Helvetica, Arial, sans-serif;
@@ -381,7 +389,7 @@ a:hover { color: var(--text-link-hover); text-decoration-thickness: 2px; }
   border-radius: var(--radius-pill);
   font-size: var(--fs-body);
   font-weight: var(--fw-semibold);
-  color: var(--blue-800);
+  color: var(--eu-teal-hover);
 }
 
 /* ── Input ────────────────────────────────────────────────────────── */
@@ -412,7 +420,7 @@ a:hover { color: var(--text-link-hover); text-decoration-thickness: 2px; }
 .leitsatz-num {
   font-size: var(--fs-h3);
   font-weight: var(--fw-extrabold);
-  color: var(--blue-600);
+  color: var(--eu-teal);
   line-height: 1.1;
   min-width: 44px;
   flex-shrink: 0;
@@ -426,7 +434,7 @@ a:hover { color: var(--text-link-hover); text-decoration-thickness: 2px; }
   .grid-2-1 { grid-template-columns: 1fr !important; }
   .grid-14-1 { grid-template-columns: 1fr !important; }
   .hero-grid { grid-template-columns: 1fr !important; }
-  .hero-img { display: none; }
+  .hero-img { order: -1; aspect-ratio: 16/9 !important; }
   .footer-grid { grid-template-columns: 1fr 1fr !important; }
 }
 @media (max-width: 480px) {

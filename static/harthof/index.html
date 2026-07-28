@@ -9,20 +9,10 @@
 </head>
 <body>
 
-<!-- ── Utility bar ──────────────────────────────────────────────────── -->
-<div style="background:var(--surface-subtle);border-bottom:1px solid var(--border-subtle)">
-  <div class="container" style="height:36px;display:flex;align-items:center;gap:var(--space-5);font-size:var(--fs-caption);color:var(--text-muted)">
-    <a href="#" style="text-decoration:none;color:inherit">Leichte Sprache</a>
-    <a href="#" style="text-decoration:none;color:inherit">Barrierefreiheit</a>
-    <a href="#kontakt" style="text-decoration:none;color:inherit">Kontakt</a>
-    <span class="topbar-subtitle" style="margin-left:auto">Ein Quartiersrat im Bezirksausschuss 11 · begleitet vom EU-Projekt ASCEND</span>
-  </div>
-</div>
-
 <!-- ── Header ───────────────────────────────────────────────────────── -->
 <header style="background:var(--blue-600)">
   <div class="container" style="height:76px;display:flex;align-items:center;gap:var(--space-6)">
-    <a href="#" style="text-decoration:none;display:flex;flex-direction:column;gap:2px">
+    <a href="/" style="text-decoration:none;display:flex;flex-direction:column;gap:2px">
       <span style="font-size:26px;font-weight:var(--fw-extrabold);letter-spacing:-.01em;color:var(--white);line-height:1.05">harthof.quartiersrat.de</span>
       <span style="font-size:var(--fs-caption);font-weight:var(--fw-semibold);color:var(--blue-100)">Quartiersrat Harthof / Am Hart</span>
     </a>
@@ -32,7 +22,7 @@
 <!-- ── Navigation ───────────────────────────────────────────────────── -->
 <nav style="background:var(--blue-800)">
   <div class="container" style="height:52px;display:flex;align-items:stretch;gap:var(--space-6);overflow-x:auto">
-    <a href="#" style="color:var(--white);text-decoration:none;font-size:var(--fs-body);font-weight:var(--fw-bold);display:inline-flex;align-items:center;white-space:nowrap;box-shadow:inset 0 -4px 0 var(--white)">Startseite</a>
+    <a href="/" style="color:var(--white);text-decoration:none;font-size:var(--fs-body);font-weight:var(--fw-bold);display:inline-flex;align-items:center;white-space:nowrap;box-shadow:inset 0 -4px 0 var(--white)">Startseite</a>
     <a href="#quartiersrat" style="color:var(--white);text-decoration:none;font-size:var(--fs-body);font-weight:var(--fw-semibold);display:inline-flex;align-items:center;white-space:nowrap">Quartiersrat</a>
     <a href="#leitbild" style="color:var(--white);text-decoration:none;font-size:var(--fs-body);font-weight:var(--fw-semibold);display:inline-flex;align-items:center;white-space:nowrap">Leitbild</a>
     <a href="#termine" style="color:var(--white);text-decoration:none;font-size:var(--fs-body);font-weight:var(--fw-semibold);display:inline-flex;align-items:center;white-space:nowrap">Veranstaltungen</a>
@@ -42,18 +32,18 @@
 
 <!-- ── Hero ─────────────────────────────────────────────────────────── -->
 <section style="background:var(--surface-inverse);color:var(--white)">
-  <div class="container" style="padding:var(--space-8) var(--gutter);display:grid;grid-template-columns:1.05fr .95fr;gap:var(--space-7);align-items:center" class="hero-grid">
+  <div class="container hero-grid" style="padding:var(--space-8) var(--gutter);display:grid;grid-template-columns:1.05fr .95fr;gap:var(--space-7);align-items:center">
     <div>
       <span style="font-size:var(--fs-overline);text-transform:uppercase;letter-spacing:var(--ls-overline);font-weight:var(--fw-bold);color:var(--blue-200)">Gegründet am 22. April 2026</span>
       <h1 style="font-size:var(--fs-display);color:var(--white);margin:var(--space-3) 0 0;letter-spacing:-.01em">Unser Harthof.<br>Gemeinsam gestalten.</h1>
-      <p style="font-size:var(--fs-lead);line-height:var(--lh-lead);color:var(--blue-100);margin:var(--space-4) 0 0;max-width:48ch">Der Quartiersrat vertritt die Interessen und Bedürfnisse aller Menschen des Harthofs / Am Hart. Wir bringen Menschen, Initiativen und Einrichtungen zusammen und setzen soziale und ökologisch wertvolle Projekte im Quartier um.</p>
+      <p style="font-size:var(--fs-lead);line-height:var(--lh-lead);color:var(--blue-100);margin:var(--space-4) 0 0;max-width:48ch">Der Quartiersrat vertritt die Interessen und Bedürfnisse aller Menschen des Harthofs / Am Hart. Wir bringen Menschen, Initiativen und Einrichtungen zusammen und setzen soziale und ökologische Projekte im Quartier um.</p>
       <div style="display:flex;flex-wrap:wrap;gap:var(--space-3);margin-top:var(--space-6)">
         <a href="#leitbild" class="btn btn-inverse">Leitbild lesen <span class="icon" style="font-size:20px">chevron_right</span></a>
-        <a href="#mitmachen" class="btn btn-ghost">Mitmachen</a>
+        <a href="mailto:kontakt@harthof.quartiersrat.de?subject=Mitmachen%20im%20Quartiersrat&body=Hallo%20Quartiersrat%2C%0D%0A%0D%0AIch%20bin%20%3CIhr%20Name%3E%20und%20m%C3%B6chte%20gerne%20beim%20Quartiersrat%20mitmachen.%0D%0A%0D%0AMeine%20Kontaktinfos%20sind%3A%20" class="btn btn-ghost">Mitmachen</a>
       </div>
     </div>
-    <div class="hero-img" style="aspect-ratio:4/3;background:rgba(255,255,255,.08);border:1px dashed rgba(255,255,255,.25);border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center;text-align:center;padding:var(--space-5);font-size:var(--fs-caption);color:var(--blue-200)">
-      Bild: Feierliches Unterzeichnen des Leitbildes, 22. April 2026<br>Foto: STUDIO | STADT | REGION
+    <div class="hero-img" style="aspect-ratio:4/3;border-radius:var(--radius-md);overflow:hidden">
+      <img src="quartiersrat-foto.jpg" alt="Mitglieder des Quartiersrats Harthof / Am Hart, 22. April 2026" style="width:100%;height:100%;object-fit:cover">
     </div>
   </div>
 </section>
@@ -66,7 +56,7 @@
     <div class="alert-icon"><span class="icon" style="font-size:22px">event</span></div>
     <div class="alert-body">
       <strong>Nächstes Treffen des Quartiersrats</strong>
-      <p>Mittwoch, 27. Mai 2026, 18:00 bis 20:30 Uhr im Mehrgenerationenhaus „Unter den Arkaden", Dientzenhofer Straße 68. Alle Menschen aus dem Quartier sind willkommen — eine Anmeldung ist nicht nötig.</p>
+      <p>Dienstag, 29. September 2026, 18:30 Uhr im Mehrgenerationenhaus „Unter den Arkaden", Dientzenhofer Straße 68. Alle Menschen aus dem Quartier sind willkommen — eine Anmeldung ist nicht nötig.</p>
     </div>
   </div>
 
@@ -97,7 +87,7 @@
   <section id="mitmachen" class="section">
     <div style="display:flex;align-items:baseline;justify-content:space-between;gap:var(--space-5);flex-wrap:wrap">
       <h2 style="margin:0">Unsere Arbeitsgruppen</h2>
-      <a href="#kontakt" style="font-weight:var(--fw-semibold);font-size:var(--fs-small)">In einer Arbeitsgruppe mitmachen</a>
+      <a href="mailto:kontakt@harthof.quartiersrat.de?subject=Mitarbeit%20in%20einer%20Arbeitsgruppe&body=Hallo%20Quartiersrat%2C%0D%0A%0D%0AIch%20bin%20%3CIhr%20Name%3E%20und%20m%C3%B6chte%20gerne%20bei%20%22einer%20Arbeitsgruppe%22%20mitmachen.%0D%0A%0D%0AMeine%20Kontaktinfos%20sind%3A%20" style="font-weight:var(--fw-semibold);font-size:var(--fs-small)">In einer Arbeitsgruppe mitmachen</a>
     </div>
     <div style="display:flex;flex-wrap:wrap;gap:var(--space-3);margin-top:var(--space-5)">
       <div class="tag"><span class="icon" style="font-size:24px;color:var(--color-primary)">directions_walk</span>Stadtteilspaziergänge</div>
@@ -117,7 +107,7 @@
     </div>
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gutter);margin-top:var(--space-5)" class="grid-3">
       <div class="teaser-card">
-        <div class="teaser-img"><span class="icon" style="font-size:40px">image</span></div>
+        <div class="teaser-img"><img src="gruendung.png" alt="Unterzeichnung des Leitbildes" style="width:100%;height:100%;object-fit:cover"></div>
         <div class="teaser-body">
           <div class="teaser-meta">
             <span class="teaser-category">Gründung</span>
@@ -128,7 +118,7 @@
         </div>
       </div>
       <div class="teaser-card">
-        <div class="teaser-img"><span class="icon" style="font-size:40px">image</span></div>
+        <div class="teaser-img"><img src="organigram.png" alt="Organigramm des Quartiersrats" style="width:100%;height:100%;object-fit:cover"></div>
         <div class="teaser-body">
           <div class="teaser-meta">
             <span class="teaser-category">Organisation</span>
@@ -139,7 +129,7 @@
         </div>
       </div>
       <div class="teaser-card">
-        <div class="teaser-img"><span class="icon" style="font-size:40px">image</span></div>
+        <div class="teaser-img"><img src="ascend.png" alt="ASCEND Parklet" style="width:100%;height:100%;object-fit:cover"></div>
         <div class="teaser-body">
           <div class="teaser-meta">
             <span class="teaser-category">Quartier</span>
@@ -158,10 +148,10 @@
       <h2 style="margin:0">Termine</h2>
       <div style="display:flex;flex-direction:column;gap:var(--space-3);margin-top:var(--space-5)">
         <div class="event-card">
-          <div class="event-date-box"><span class="day">27</span><span class="month">Mai</span></div>
+          <div class="event-date-box"><span class="day">29</span><span class="month">Sep</span></div>
           <div class="event-info">
             <h3>Treffen des Quartiersrats</h3>
-            <div class="event-time"><span class="icon">schedule</span>Mi. 27.05.2026 · 18:00–20:30 Uhr</div>
+            <div class="event-time"><span class="icon">schedule</span>Di. 29.09.2026 · 18:30 Uhr</div>
             <div class="event-location"><span class="icon">place</span>Mehrgenerationenhaus „Unter den Arkaden", Dientzenhofer Straße 68</div>
           </div>
         </div>
@@ -232,14 +222,16 @@
       </div>
     </div>
     <div style="display:flex;flex-wrap:wrap;gap:var(--space-3);margin-top:var(--space-6)">
-      <a href="#" class="btn btn-primary">Alle zehn Leitsätze lesen <span class="icon" style="font-size:20px">chevron_right</span></a>
-      <a href="#" class="btn btn-secondary"><span class="icon" style="font-size:20px">download</span> Leitbild als PDF</a>
+      <a href="dokumente.html" class="btn btn-primary">Alle zehn Leitsätze lesen <span class="icon" style="font-size:20px">chevron_right</span></a>
     </div>
   </section>
 
   <!-- Organigramm -->
   <section id="quartiersrat" class="section">
-    <h2 style="margin:0">So sind wir organisiert</h2>
+    <div style="display:flex;align-items:baseline;justify-content:space-between;gap:var(--space-5);flex-wrap:wrap">
+      <h2 style="margin:0">So sind wir organisiert</h2>
+      <a href="dokumente.html#organigram" style="font-weight:var(--fw-semibold);font-size:var(--fs-small)">Organigramm ansehen</a>
+    </div>
     <p style="font-size:var(--fs-lead);line-height:var(--lh-lead);color:var(--text-muted);margin:var(--space-3) 0 0;max-width:68ch">Drei Kreise tragen die Arbeit: das Kernteam organisiert die Treffen, die Interne Schaltstelle hält den Quartiersrat zusammen, die Externe Schaltstelle macht ihn im Quartier sichtbar. Alle Positionen sind mit Vertretungen besetzt.</p>
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gutter);margin-top:var(--space-5)" class="grid-3">
       <div class="card">
@@ -288,7 +280,7 @@
       <h2 style="margin:0">Mitmachen im Quartiersrat</h2>
       <p style="line-height:var(--lh-body);margin:var(--space-4) 0 0;max-width:68ch">Sie wohnen, arbeiten oder engagieren sich im Harthof / Am Hart? Kommen Sie zum nächsten Treffen, bringen Sie ein Anliegen ein oder arbeiten Sie in einer Arbeitsgruppe mit. Es gibt keine Aufnahmehürde und keine Frist — Sie sind willkommen, sobald Sie da sind.</p>
       <div style="display:flex;flex-wrap:wrap;gap:var(--space-3);margin-top:var(--space-5)">
-        <a href="#" class="btn btn-primary">Anliegen einreichen <span class="icon" style="font-size:20px">chevron_right</span></a>
+        <a href="mailto:kontakt@harthof.quartiersrat.de?subject=Anliegen%20einreichen&body=Hallo%20Quartiersrat%2C%0D%0A%0D%0AIch%20bin%20%3CIhr%20Name%3E%20und%20m%C3%B6chte%20gerne%20bei%20%22Anliegen%20einreichen%22%20mitmachen.%0D%0A%0D%0AMeine%20Kontaktinfos%20sind%3A%20" class="btn btn-primary">Anliegen einreichen <span class="icon" style="font-size:20px">chevron_right</span></a>
         <a href="mailto:kontakt@harthof.quartiersrat.de" class="btn btn-secondary"><span class="icon" style="font-size:20px">mail</span> Kontakt aufnehmen</a>
       </div>
     </div>
@@ -297,14 +289,7 @@
         <div class="info-box-icon"><span class="icon">place</span></div>
         <div class="info-box-content">
           <h4>Lieber persönlich?</h4>
-          <p>Kommen Sie zum nächsten Treffen am Mittwoch, 27. Mai 2026, 18:00–20:30 Uhr ins Mehrgenerationenhaus „Unter den Arkaden", Dientzenhofer Straße 68.</p>
-        </div>
-      </div>
-      <div class="info-box">
-        <div class="info-box-icon"><span class="icon">mail</span></div>
-        <div class="info-box-content">
-          <h4>Rückfragen zum Gründungsprozess</h4>
-          <p>Susanna Walter und Toril Meyer-Gerlt, STUDIO | STADT | REGION · <a href="mailto:ascend@studio-stadt-region.de">ascend@studio-stadt-region.de</a></p>
+          <p>Kommen Sie zum nächsten Treffen am Dienstag, 29. September 2026, 18:30 Uhr ins Mehrgenerationenhaus „Unter den Arkaden", Dientzenhofer Straße 68.</p>
         </div>
       </div>
     </div>
@@ -337,7 +322,6 @@
       <span style="font-weight:var(--fw-bold);color:var(--white)">Quartiersrat</span>
       <a href="#leitbild" style="color:inherit;text-decoration:none">Leitbild</a>
       <a href="#quartiersrat" style="color:inherit;text-decoration:none">Organisationsstrukturen</a>
-      <a href="#" style="color:inherit;text-decoration:none">Protokolle</a>
       <a href="#termine" style="color:inherit;text-decoration:none">Veranstaltungen</a>
     </div>
     <div style="display:flex;flex-direction:column;gap:var(--space-2);font-size:var(--fs-small)">
@@ -350,14 +334,12 @@
       <span style="font-weight:var(--fw-bold);color:var(--white)">Projekt und Service</span>
       <a href="https://ascend-muenchen.de/" style="color:inherit;text-decoration:none">EU-Projekt ASCEND</a>
       <a href="https://www.muenchen.de/ascend-map" style="color:inherit;text-decoration:none">ASCEND Quartierskarte</a>
-      <a href="#" style="color:inherit;text-decoration:none">Leichte Sprache</a>
-      <a href="#" style="color:inherit;text-decoration:none">Barrierefreiheit</a>
-      <a href="#" style="color:inherit;text-decoration:none">Impressum und Datenschutz</a>
+      <a href="impressum.html" style="color:inherit;text-decoration:none">Impressum</a>
     </div>
   </div>
   <div style="border-top:1px solid rgba(255,255,255,.15)">
     <div class="container" style="padding:var(--space-4) var(--gutter);font-size:var(--fs-caption)">
-      © 2026 Quartiersrat Harthof / Am Hart · Gefördert durch die Europäische Union im Projekt ASCEND · Bezirksausschuss 11, Landeshauptstadt München
+      © 2026 Quartiersrat Harthof / Am Hart · <a href="mailto:kontakt@harthof.quartiersrat.de" style="color:inherit">kontakt@harthof.quartiersrat.de</a> · Gefördert durch die Europäische Union im Projekt ASCEND · Bezirksausschuss 11, Landeshauptstadt München
     </div>
   </div>
 </footer>
