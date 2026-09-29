@@ -12,6 +12,7 @@ permissions:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    environment: Deploy
     steps:
       - uses: actions/checkout@v4
 
@@ -27,5 +28,5 @@ jobs:
       - run: bun run deploy:ci
         env:
           CDK_ACCOUNT: ${{ secrets.CDK_ACCOUNT }}
-          FORWARD_TO: ${{ secrets.FORWARD_TO }}
-          FORWARD_TO_HARTHOF: ${{ secrets.FORWARD_TO_HARTHOF }}
+          FORWARD_TO: ${{ vars.FORWARD_TO }}
+          FORWARD_TO_HARTHOF: ${{ vars.FORWARD_TO_HARTHOF }}
