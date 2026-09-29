@@ -25,6 +25,11 @@ export class QuartiersratCiStack extends Stack {
       clientIds: ["sts.amazonaws.com"],
     });
 
+    // GitHub's sub claim appends immutable numeric IDs to the owner and repo
+    // name (e.g. "repo:owner@123/repo@456:ref:refs/heads/main"), so the owner
+    // and repo segments need wildcard suffixes rather than an exact match.
+    const [githubOwner, githubRepoName] = props.githubRepo.split("/");
+
     this.deployRole = new Role(this, "GithubActionsDeployRole", {
       roleName: "quartiersrat-github-actions-deploy",
       description: "Assumed by GitHub Actions (via OIDC) to run `cdk deploy` for quartiersrat.de",
@@ -33,7 +38,7 @@ export class QuartiersratCiStack extends Stack {
           "token.actions.githubusercontent.com:aud": "sts.amazonaws.com",
         },
         StringLike: {
-          "token.actions.githubusercontent.com:sub": `repo:${props.githubRepo}:ref:refs/heads/main`,
+          "token.actions.githubusercontent.com:sub": `repo:${githubOwner}*/${githubRepoName}*:ref:refs/heads/main`,
         },
       }),
     });
