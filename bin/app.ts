@@ -5,7 +5,15 @@ import { QuartiersratEmailStack } from "../lib/quartiersrat-email-stack.ts";
 import { QuartiersratStack } from "../lib/quartiersrat-stack.ts";
 import { QuartiersratZoneStack } from "../lib/quartiersrat-zone-stack.ts";
 
-const account = "806941787553";
+function requireEnv(name: string): string {
+  const value = process.env[name];
+  if (!value) {
+    throw new Error(`Missing required environment variable ${name} (see .env.example)`);
+  }
+  return value;
+}
+
+const account = requireEnv("CDK_ACCOUNT");
 const domainName = "quartiersrat.de";
 
 const app = new App();
@@ -33,8 +41,8 @@ new QuartiersratEmailStack(app, "QuartiersratEmail", {
   crossRegionReferences: true,
   domainName,
   zone: zoneStack.zone,
-  forwardTo: "dennis@dennisschaaf.com",
-  forwardToHarthof: "dennis@dennisschaaf.com,uqu@gmx.de,e.hahn@etc-muenchen.de,andreaschoener@aol.com",
+  forwardTo: requireEnv("FORWARD_TO"),
+  forwardToHarthof: requireEnv("FORWARD_TO_HARTHOF"),
 });
 
 // 4. S3 + CloudFront for quartiersrat.de and harthof.quartiersrat.de.

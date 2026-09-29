@@ -13,10 +13,11 @@ Jeder Quartiersrat bekommt eine eigene Subdomain und S3/CloudFront-Deploymentein
 
 - [Bun](https://bun.sh) installiert
 - AWS CLI konfiguriert mit Profil `quartiersrat` (`aws configure --profile quartiersrat`)
-- CDK Bootstrap im Account `806941787553` für `eu-central-1` und `us-east-1`:
+- `.env` aus `.env.example` erstellen und ausfüllen (AWS Account-ID, Forward-To-Adressen). `.env` ist gitignored und wird von Bun automatisch geladen.
+- CDK Bootstrap im in `.env` hinterlegten Account für `eu-central-1` und `us-east-1`:
   ```bash
-  bunx cdk bootstrap aws://806941787553/eu-central-1 --profile quartiersrat
-  bunx cdk bootstrap aws://806941787553/us-east-1 --profile quartiersrat
+  bunx cdk bootstrap aws://<CDK_ACCOUNT>/eu-central-1 --profile quartiersrat
+  bunx cdk bootstrap aws://<CDK_ACCOUNT>/us-east-1 --profile quartiersrat
   ```
 
 ## Installation
