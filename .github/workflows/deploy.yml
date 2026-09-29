@@ -1,0 +1,31 @@
+name: Deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: {}
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: oven-sh/setup-bun@v2
+
+      - uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: arn:aws:iam::${{ secrets.CDK_ACCOUNT }}:role/quartiersrat-github-actions-deploy
+          aws-region: eu-central-1
+
+      - run: bun install
+
+      - run: bun run deploy:ci
+        env:
+          CDK_ACCOUNT: ${{ secrets.CDK_ACCOUNT }}
+          FORWARD_TO: ${{ secrets.FORWARD_TO }}
+          FORWARD_TO_HARTHOF: ${{ secrets.FORWARD_TO_HARTHOF }}

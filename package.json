@@ -9,6 +9,7 @@
     "cdk": "cdk --profile quartiersrat",
     "synth": "cdk synth --all --profile quartiersrat",
     "deploy": "cdk deploy --all --require-approval never --profile quartiersrat",
+    "deploy:ci": "cdk deploy --all --require-approval never",
     "diff": "cdk diff --all --profile quartiersrat"
   },
   "devDependencies": {

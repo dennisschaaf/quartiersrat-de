@@ -1,6 +1,7 @@
 #!/usr/bin/env bun
 import { App } from "aws-cdk-lib";
 import { QuartiersratCertStack } from "../lib/quartiersrat-cert-stack.ts";
+import { QuartiersratCiStack } from "../lib/quartiersrat-ci-stack.ts";
 import { QuartiersratEmailStack } from "../lib/quartiersrat-email-stack.ts";
 import { QuartiersratStack } from "../lib/quartiersrat-stack.ts";
 import { QuartiersratZoneStack } from "../lib/quartiersrat-zone-stack.ts";
@@ -52,4 +53,12 @@ new QuartiersratStack(app, "QuartiersratStack", {
   domainName,
   zone: zoneStack.zone,
   certificate: certStack.certificate,
+});
+
+// 5. IAM role GitHub Actions assumes (via OIDC) to run `cdk deploy`.
+new QuartiersratCiStack(app, "QuartiersratCi", {
+  env: { account, region: "eu-central-1" },
+  githubRepo: "dennisschaaf/quartiersrat-de",
+  cdkQualifier: "hnb659fds",
+  deployRegions: ["eu-central-1", "us-east-1", "eu-west-1"],
 });
