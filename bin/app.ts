@@ -59,6 +59,7 @@ new QuartiersratStack(app, "QuartiersratStack", {
 new QuartiersratCiStack(app, "QuartiersratCi", {
   env: { account, region: "eu-central-1" },
   githubRepo: "dennisschaaf/quartiersrat-de",
+  githubEnvironment: "Deploy",
   cdkQualifier: "hnb659fds",
   deployRegions: ["eu-central-1", "us-east-1", "eu-west-1"],
 });

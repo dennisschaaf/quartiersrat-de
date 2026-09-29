@@ -7,6 +7,9 @@ interface QuartiersratCiStackProps extends StackProps {
   githubRepo: string;
   // CDK bootstrap qualifier (see CDKToolkit stack parameters), default "hnb659fds"
   cdkQualifier: string;
+  // GitHub Actions environment the deploy job runs under (changes the sub claim
+  // from "...:ref:refs/heads/main" to "...:environment:<name>").
+  githubEnvironment: string;
   // Regions the other stacks deploy into — the role needs to assume the
   // CDK bootstrap roles in each of them.
   deployRegions: string[];
@@ -38,7 +41,7 @@ export class QuartiersratCiStack extends Stack {
           "token.actions.githubusercontent.com:aud": "sts.amazonaws.com",
         },
         StringLike: {
-          "token.actions.githubusercontent.com:sub": `repo:${githubOwner}*/${githubRepoName}*:ref:refs/heads/main`,
+          "token.actions.githubusercontent.com:sub": `repo:${githubOwner}*/${githubRepoName}*:environment:${props.githubEnvironment}`,
         },
       }),
     });
